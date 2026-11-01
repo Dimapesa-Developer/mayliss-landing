@@ -1,4 +1,4 @@
-const MEDIA = "https://renta-de-vestidos-production.up.railway.app/media/vestidos";
+import { asset } from "@/config/site";
 
 export type Vestido = {
   codigo: string;
@@ -10,7 +10,9 @@ export type Vestido = {
   fotos: string[];
 };
 
-const foto = (id: number, archivo: string) => `${MEDIA}/${id}/${archivo}.webp`;
+// Copias locales (public/vestidos) de las fotos del catálogo de mayliss.com.mx.
+// El servidor original envía Cross-Origin-Resource-Policy: same-origin, así que no se pueden enlazar desde otro dominio.
+const foto = (id: number, archivo: string) => asset(`/vestidos/${id}/${archivo}.webp`);
 
 // Datos tomados de las fichas públicas de mayliss.com.mx (oct 2026).
 export const vestidos = {

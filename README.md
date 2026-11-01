@@ -18,7 +18,8 @@ Cada push a `main` publica el sitio en GitHub Pages (`.github/workflows/deploy.y
 ## Integrarla en otro sitio Next.js
 - La landing es `app/page.tsx` + `components/` + `config/` + `data/`; copia esas carpetas y los estilos de `app/globals.css` (tokens `@theme`).
 - Fuentes: Bodoni Moda e Inter (`app/layout.tsx`); el smooth scroll (`SmoothScroll`) envuelve el `body`.
-- Dependencias: `motion` y `lenis`. Añade el host de las fotos a `images.remotePatterns` (ver `next.config.ts`).
+- Dependencias: `motion` y `lenis`.
+- Fotos: copias locales en `public/vestidos/` (el servidor del catálogo bloquea mostrarlas desde otros dominios). Dentro de mayliss.com.mx se pueden volver a tomar de la API del catálogo cambiando `foto()` en `data/vestidos.ts`.
 - Las rutas a `/public` pasan por `asset()` (`config/site.ts`) para respetar `NEXT_PUBLIC_BASE_PATH`.
 
 ## Dónde está cada cosa
