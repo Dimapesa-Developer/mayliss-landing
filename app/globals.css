@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+@theme {
+  --color-fondo: #faf8f5;
+  --color-tinta: #111111;
+  --color-gris: #6b6b6b;
+  --color-linea: #e5e2dd;
+  /* Marca (recursos mayliss): oro champaña sobre negro */
+  --color-noche: #0b0b0b;
+  --color-oro: #b69a76;
+  --color-oro-claro: #e3cb9c;
+  --color-oro-medio: #9c7f57; /* texto grande sobre fondo claro (≥3:1) */
+  --color-oro-oscuro: #7a6140; /* texto pequeño sobre fondo claro (AA) */
+  --font-display: var(--font-bodoni), "Bodoni 72", "Didot", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --ease-mayliss: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html {
+  background: var(--color-fondo);
+  color: var(--color-tinta);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Etiquetas de UI: 11px, mayúsculas, tracking 0.14em */
+@utility ui-label {
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Titulares gigantes en Bodoni */
+@utility display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 14vw, 220px);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+:focus-visible {
+  outline: 1px solid var(--color-oro-oscuro);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--color-oro);
+  color: var(--color-noche);
+}
